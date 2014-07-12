@@ -1,0 +1,5 @@
+#!/usr/bin/perl
+
+chomp(@lines = <STDIN>);
+print "1234567890" x 3, "\n";
+printf "%20s\n" x @lines, @lines;

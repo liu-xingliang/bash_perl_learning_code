@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+chomp(@_list = <STDIN>);
+@names = qw(fred betty barney dino wilam pebbles bamm-bamm);
+@sort_list = sort @_list;
+if(@sort_list[0]<1 || @sort_list[$#sort_list] > 7) {
+    print "The range of input number should be 1 - 7 (inclusive)\n";
+} else {
+    foreach (@_list) {
+        print "@names[$_ - 1] ";
+    }
+}
+print "\n";

@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+
+while(<>) {
+    chomp;
+    if(m/(?<word>\b\w*a\b)/) {
+        print "'word' contains '$+{word}'\n";
+    } else {
+        print "No match: |$_|\n";
+    }
+}

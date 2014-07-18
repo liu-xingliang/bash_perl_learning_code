@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+
+while(<>) {
+    chomp;
+    if(m/(?<word>\b\w*a\b)(?<following5>.{0,5})/) {
+        print "'word' contains '$+{word}', 'following5' contains '$+{following5}'\n";
+    } else {
+        print "No match: |$_|\n";
+    }
+}

@@ -1,5 +1,0 @@
-#!/usr/bin/perl
-
-chomp(@_list = <STDIN>);
-@_list = sort @_list;
-print "@_list\n";

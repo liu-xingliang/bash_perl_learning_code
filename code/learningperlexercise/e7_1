@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+if(! open MYFILE, "input.txt") {
+    die "Cannnot open input file: $!";
+}
+
+while(<MYFILE>) {
+    chomp;
+    if(/(^|\p{Space}+)fred($|\p{Space}+)/) {
+        print $_ . "\n";
+    }
+}

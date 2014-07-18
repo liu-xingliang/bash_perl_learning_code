@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+
+#@lines = <STDIN>;
+#@reverse_lines = reverse @lines;
+#print @reverse_lines;
+
+print reverse <STDIN>;

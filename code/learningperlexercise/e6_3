@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my $longest;
+foreach my $key (keys %ENV) {
+    my $key_length = length $key;
+    $longest = $key_length if $key_length > $longest;
+    # $longest = $key_length > $longest ? $key_length : $longest;
+}
+
+my($key, $value);
+
+while(($key, $value) = each %ENV) {
+    printf "%-${longest}s %s\n", $key, $value;
+}

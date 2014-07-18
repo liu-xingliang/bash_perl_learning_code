@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+print "Please give two numbers:\n";
+$n1 = <STDIN>;
+$n2 = <STDIN>;
+$product = $n1 * $n2;
+print "Product is $product\n";
+
+

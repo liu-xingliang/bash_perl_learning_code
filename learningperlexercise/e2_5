@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+
+print "String to repeat:\n";
+chomp($s = <STDIN>);
+print "Number of times:\n";
+$n = <STDIN>;
+print "$s\n" x $n;

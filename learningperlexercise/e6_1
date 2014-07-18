@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+# build up hash
+my %family_name = (
+    fred => 'flintstone',
+    barney => 'rubble',
+    wilma => 'flintstone',
+);
+
+while(<STDIN>) {
+    chomp;
+    if(exists $family_name{$_}) {
+        print "Family name of $_ is $family_name{$_}\n";
+    } else {
+        print "No record!\n";
+    }
+}

@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+print "Please input the radium:\n";
+$r = <STDIN>;
+$PI = 3.141592654;
+$c = 2 * $PI * $r;
+print "The circumference is $c\n";
+print "The circumference is " . 2 * $PI * $r . "\n";
+

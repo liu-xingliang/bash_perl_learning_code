@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+## Copyright (C) 2014 by Liu Xingliang
+use strict;
+use warnings;
+
+my ($inputfile_name, $outputfile_name, $inputfile_fh, $outputfile_fh);
+$inputfile_name = $ARGV[0];
+if(! defined $inputfile_name) {
+    die "Usage: $0 filename";
+}
+
+$outputfile_name = $inputfile_name =~ s/(\.\w+)?$/.out/r;
+
+open $inputfile_fh, '<', $inputfile_name or die "Can't open '$inputfile_name': $!";
+open $outputfile_fh, '>', $outputfile_name or die "Can't open '$outputfile_name': $!";
+
+while(<$inputfile_fh>) {
+    chomp;
+    s/Fred/\n/gi;
+    s/Wilma/Fred/gi;
+    s/\n/Wilma/g;
+    print $outputfile_fh $_ . "\n";
+}
+
+close $inputfile_fh;
+close $outputfile_fh;

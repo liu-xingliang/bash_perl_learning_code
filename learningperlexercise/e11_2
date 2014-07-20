@@ -1,0 +1,27 @@
+#!/usr/bin/perl -w
+
+use strict;
+use DateTime;
+use Time::Piece;
+
+my $t = localtime;
+my $current_ = DateTime->new(
+    year => $t->year,
+    month => $t->mon,
+    day => $t->mday,
+);
+
+my $previous_ = DateTime->new(
+    year => $ARGV[0],
+    month => $ARGV[1],
+    day => $ARGV[2],
+);
+
+if($current_ < $previous_) {
+    die "You entered a data in the future!\n";
+}
+
+my $duration = $current_ - $previous_;
+my @units = $duration->in_units(qw/years months days/);
+
+printf "%d years, %d months, and %d days\n", @units;

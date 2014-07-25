@@ -1,0 +1,26 @@
+#!/usr/bin/perl -w
+
+use strict;
+use DateTime;
+
+my $oldest_file;
+my $oldest_ctime = DateTime->now;
+
+print "No input file" unless @ARGV;
+
+foreach my $file (@ARGV) {
+    my @stat = stat($file);
+    my $ctime = DateTime->from_epoch(epoch => $stat[10]);
+    if($oldest_ctime > $ctime) {
+        $oldest_ctime = $ctime;
+        $oldest_file = $file;
+    }
+}
+
+my $current = DateTime->now;
+#my $duration = $current->delta_days($oldest_ctime);
+my $duration = $oldest_ctime->delta_days($current);
+my $days = $duration->in_units('days');
+
+print "Oldest file is: $oldest_file, its age is $days days\n";
+    

@@ -1,0 +1,21 @@
+#!/usr/bin/perl -w
+
+use strict;
+
+foreach my $file (@ARGV) {
+    my $attributes = &attributes($file);
+    print "'$file' $attributes.\n";
+}
+
+sub attributes {
+    my $file = shift @_;
+    return "don't exist" unless -e $file;
+
+    my @attributes;
+    push @attributes, "readable" if -r _;
+    push @attributes, "writable" if -w _;
+    push @attributes, "executable" if -x _;
+
+    return "exists" unless @attributes;
+    'is ' . join " and ", @attributes;
+}

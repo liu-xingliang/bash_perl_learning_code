@@ -1,0 +1,10 @@
+#!/usr/bin/perl -w
+## Copyright (C) 2014 by Liu Xingliang
+use strict;
+
+$^I = ".bak";
+
+while(<>) {
+    s/^(#!.*)$/$1## Copyright (C) 2014 by Liu Xingliang\n/s;
+    print;
+}

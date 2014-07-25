@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+## Copyright (C) 2014 by Liu Xingliang
+use strict;
+use warnings;
+
+my $what = "fred|barney";
+while(<>) {
+    chomp;
+    print "Matched\n" if /($what){3}/;
+}

@@ -1,0 +1,31 @@
+#!/usr/bin/perl -w
+## Copyright (C) 2014 by Liu Xingliang
+
+use strict;
+
+my %do_list; #hash contains file names (keys) which don't have copyright line
+
+foreach (@ARGV) {
+    $do_list{$_} = 1; #value is not important, set to 1 here
+}
+
+#find those files which don't have copyright line
+while(<>) {
+    if(/^## Copyright \(C\) 2014 by Liu Xingliang\n$/) {
+        delete $do_list{$ARGV};
+    }
+}
+
+@ARGV = sort keys %do_list;
+$^I = ".bak";
+
+if(@ARGV) {#without this, if @ARGV is empty, there is no file need to add copyright line, our program will wait input from STDIN
+    while(<>) {
+        if(/^#!/) {
+            $_ .= "## Copyright (C) 2014 by Liu Xingliang\n";
+        }
+        print;
+    }
+}
+
+

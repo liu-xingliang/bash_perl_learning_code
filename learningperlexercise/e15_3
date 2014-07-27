@@ -1,0 +1,14 @@
+#!/usr/bin/perl -w
+
+use strict;
+
+use 5.10.1;
+
+for(@ARGV) {
+    my $privilege = "";
+    when(! -e $_) {say "File does not exist!"};
+    when(-r _) {$privilege .= " readable"; continue}
+    when(-w _) {$privilege .= " writable"; continue}
+    when(-x _) {$privilege .= " executable"; continue}
+    say "$_$privilege";
+}

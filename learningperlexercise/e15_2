@@ -1,0 +1,16 @@
+#!/usr/bin/perl -w
+
+use strict;
+
+use 5.10.1;
+
+for(1..105) {
+    my $what = '';
+    given($_)
+    {
+        when(not $_ % 3) {$what .= " Fizz"; continue;}
+        when(not $_ % 5) {$what .= " Bin"; continue;}
+        when(not $_ % 7) {$what .= " Sausage";}
+    }
+    say "$_$what";
+}
